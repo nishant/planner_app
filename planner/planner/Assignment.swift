@@ -8,3 +8,8 @@
 
 import Foundation
 import UIKit
+
+class Assignment {
+    var name = ""
+    var important = false
+}
