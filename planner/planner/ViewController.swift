@@ -8,13 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
+    @IBOutlet weak var assignmentButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    @IBAction func loadAssignmentView(_ sender: Any) {
+        performSegue(withIdentifier: "toAssignmentView", sender: self)
+    }
+    
 }
 
