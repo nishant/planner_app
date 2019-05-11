@@ -15,7 +15,6 @@ class RemoveAssignmentViewController: UIViewController {
         assignmentName.text = selectedAssignment?.name
     }
     
-    
     @IBAction func removeButtonWasTapped(_ sender: Any) {
         removeAssignment()
     }

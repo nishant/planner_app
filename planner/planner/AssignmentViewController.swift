@@ -13,8 +13,8 @@ class AssignmentViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         getAssignments()
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return assignments.count
     }
 
@@ -60,6 +60,18 @@ class AssignmentViewController: UITableViewController {
                     assignments = assignmentsCoreData
                     tableView.reloadData()
                 }
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+                let toDelete = assignments[indexPath.row]
+                assignments.remove(at: indexPath.row)
+                context.delete(toDelete)
+                try? context.save()
+                tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
     }
