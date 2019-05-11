@@ -116,7 +116,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.82096354166666663" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.3529411764705882" green="0.82352941176470584" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Um7-hd-v4B" firstAttribute="top" secondItem="Rux-zS-7n1" secondAttribute="bottom" constant="25" id="1RR-gj-iex"/>
                             <constraint firstItem="Rux-zS-7n1" firstAttribute="top" secondItem="QAq-aF-UCx" secondAttribute="bottom" constant="25" id="5o8-DZ-pIh"/>
@@ -173,7 +173,7 @@
                     <navigationItem key="navigationItem" title="Assignment Tracker" id="hBA-MR-KXt">
                         <barButtonItem key="leftBarButtonItem" title="Home" id="ex6-R5-3nZ">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="modal" id="I8l-SG-hTq"/>
+                                <segue destination="BYZ-38-t0r" kind="modal" id="Sqn-E1-Tua"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZfV-yH-Mg6">
@@ -182,15 +182,73 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="4D8-CP-KJN" kind="show" identifier="goToRemove" id="kJk-3o-ige"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfo-EW-sqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="607.20000000000005" y="-498.02955665024632"/>
         </scene>
-        <!--View Controller-->
+        <!--Remove Assignment View Controller-->
+        <scene sceneID="q2Z-7N-tz3">
+            <objects>
+                <viewController id="4D8-CP-KJN" customClass="RemoveAssignmentViewController" customModule="planner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W8P-53-oyo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2i-HZ-XxS">
+                                <rect key="frame" x="63" y="249" width="249" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pp7-eG-uZD">
+                                <rect key="frame" x="69" y="419.33333333333331" width="236" height="59"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="236" id="Lo8-4e-lgV"/>
+                                    <constraint firstAttribute="width" secondItem="pp7-eG-uZD" secondAttribute="height" multiplier="4:1" id="PB2-j3-NOv"/>
+                                    <constraint firstAttribute="height" constant="59" id="ehi-i6-NrM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Remove From List">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonWasTapped:" destination="uRq-e2-g5j" eventType="touchUpInside" id="8Xg-va-MUD"/>
+                                    <action selector="loadAssignmentView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j00-Ja-XuV"/>
+                                    <action selector="removeButtonWasTapped:" destination="4D8-CP-KJN" eventType="touchUpInside" id="Ha0-FM-DOC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.35294117650000001" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="w2i-HZ-XxS" firstAttribute="leading" secondItem="u8c-4y-ifP" secondAttribute="leading" constant="63" id="Qk2-ZU-oZJ"/>
+                            <constraint firstItem="pp7-eG-uZD" firstAttribute="width" secondItem="pp7-eG-uZD" secondAttribute="height" multiplier="4:1" id="SQZ-9d-mfx"/>
+                            <constraint firstItem="pp7-eG-uZD" firstAttribute="centerX" secondItem="u8c-4y-ifP" secondAttribute="centerX" id="aAd-8e-jLf"/>
+                            <constraint firstItem="pp7-eG-uZD" firstAttribute="top" secondItem="w2i-HZ-XxS" secondAttribute="bottom" constant="134.33333333333337" id="bTf-YF-cgE"/>
+                            <constraint firstItem="pp7-eG-uZD" firstAttribute="leading" secondItem="u8c-4y-ifP" secondAttribute="leading" constant="69" id="euV-Nh-ARO"/>
+                            <constraint firstItem="u8c-4y-ifP" firstAttribute="trailing" secondItem="w2i-HZ-XxS" secondAttribute="trailing" constant="63" id="gPn-aJ-Vja"/>
+                            <constraint firstItem="u8c-4y-ifP" firstAttribute="trailing" secondItem="pp7-eG-uZD" secondAttribute="trailing" constant="70" id="lAJ-Uo-Fn8"/>
+                            <constraint firstItem="w2i-HZ-XxS" firstAttribute="centerX" secondItem="u8c-4y-ifP" secondAttribute="centerX" id="osx-uk-qH2"/>
+                            <constraint firstItem="w2i-HZ-XxS" firstAttribute="top" secondItem="u8c-4y-ifP" secondAttribute="top" constant="161" id="yvG-g9-dF9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u8c-4y-ifP"/>
+                    </view>
+                    <connections>
+                        <outlet property="assignmentName" destination="w2i-HZ-XxS" id="fKQ-zJ-j2f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ml-nq-5U5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605.60000000000002" y="262.3152709359606"/>
+        </scene>
+        <!--Add Assignment View Controller-->
         <scene sceneID="5xc-pR-ziG">
             <objects>
-                <viewController id="uRq-e2-g5j" sceneMemberID="viewController">
+                <viewController id="uRq-e2-g5j" customClass="AddAssignmentViewController" customModule="planner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tyL-CU-sPp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,6 +283,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addButtonWasTapped:" destination="uRq-e2-g5j" eventType="touchUpInside" id="dyp-Rg-q0B"/>
                                     <action selector="loadAssignmentView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KD6-xl-pb0"/>
                                 </connections>
                             </button>
@@ -243,7 +302,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.82096354169999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.3529411764705882" green="0.82352941176470584" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="pjd-4H-XRj" firstAttribute="trailing" secondItem="UGW-dA-5Io" secondAttribute="trailing" constant="70" id="3uW-LG-FIv"/>
                             <constraint firstItem="xYo-fD-s3J" firstAttribute="leading" secondItem="pjd-4H-XRj" secondAttribute="leading" constant="90.999999999999986" id="3yE-SG-StK"/>
@@ -261,6 +320,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pjd-4H-XRj"/>
                     </view>
+                    <connections>
+                        <outlet property="assignmentNameField" destination="B51-lE-aRK" id="DKd-O2-GTr"/>
+                        <outlet property="importantSwitch" destination="puP-tC-3ZN" id="sFE-38-MOp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTL-o9-VtU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
