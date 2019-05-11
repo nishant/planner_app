@@ -1,23 +1,18 @@
-//
 //  RemoveAssignmentViewController.swift
-//  planner
-//
-//  Created by Nishant Arora on 5/11/19.
 //  Copyright © 2019 Nishant Arora. All rights reserved.
-//
 
 import UIKit
 
 class RemoveAssignmentViewController: UIViewController {
     var assignmentVC = AssignmentViewController()
-    var selectedAssignment = Assignment()
+    var selectedAssignment: AssignmentCoreData?
     
     @IBOutlet weak var assignmentName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        assignmentName.text = selectedAssignment.name
+        assignmentName.text = selectedAssignment?.name
     }
     
     
@@ -26,21 +21,12 @@ class RemoveAssignmentViewController: UIViewController {
     }
     
     func removeAssignment() {
-        assignmentVC.assignments.remove(at: getAssignmentIndex())
-        assignmentVC.tableView.reloadData()
-        
-        navigationController?.popViewController(animated: true)
-    }
-    
-    func getAssignmentIndex() -> Int {
-        var idx = 0
-        
-        for assignment in assignmentVC.assignments {
-            if assignment.name == selectedAssignment.name {
-                return idx
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            if let toDelete = selectedAssignment {
+                context.delete(toDelete)
+                try? context.save()
+                navigationController?.popViewController(animated: true)
             }
-            idx += 1
         }
-        return -1
     }
 }

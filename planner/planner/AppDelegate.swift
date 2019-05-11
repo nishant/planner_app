@@ -1,10 +1,5 @@
-//
 //  AppDelegate.swift
-//  planner
-//
-//  Created by Nishant Arora on 4/24/19.
 //  Copyright © 2019 Nishant Arora. All rights reserved.
-//
 
 import UIKit
 import CoreData
