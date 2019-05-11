@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19312F9A227D05C700361490 /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19312F99227D05C700361490 /* AddAssignmentViewController.swift */; };
+		1966DBF22286CECE0058207E /* RemoveAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966DBF12286CECE0058207E /* RemoveAssignmentViewController.swift */; };
 		199AC3B3227CCC6C00A26CEC /* AssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199AC3B2227CCC6C00A26CEC /* AssignmentViewController.swift */; };
 		199AC3B5227CCDC100A26CEC /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199AC3B4227CCDC100A26CEC /* Assignment.swift */; };
 		19DFF5CF227102E600704ED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DFF5CE227102E600704ED1 /* AppDelegate.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19312F99227D05C700361490 /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
+		1966DBF12286CECE0058207E /* RemoveAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAssignmentViewController.swift; sourceTree = "<group>"; };
 		199AC3B2227CCC6C00A26CEC /* AssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewController.swift; sourceTree = "<group>"; };
 		199AC3B4227CCDC100A26CEC /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		19DFF5CB227102E600704ED1 /* planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = planner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,11 +107,13 @@
 		19DFF5CD227102E600704ED1 /* planner */ = {
 			isa = PBXGroup;
 			children = (
+				19312F99227D05C700361490 /* AddAssignmentViewController.swift */,
 				199AC3B2227CCC6C00A26CEC /* AssignmentViewController.swift */,
 				199AC3B4227CCDC100A26CEC /* Assignment.swift */,
 				19DFF5CE227102E600704ED1 /* AppDelegate.swift */,
 				19DFF5D0227102E600704ED1 /* ViewController.swift */,
 				19DFF5D2227102E600704ED1 /* Main.storyboard */,
+				1966DBF12286CECE0058207E /* RemoveAssignmentViewController.swift */,
 				19DFF5D8227102E700704ED1 /* Assets.xcassets */,
 				19DFF5DA227102E700704ED1 /* LaunchScreen.storyboard */,
 				19DFF5DD227102E700704ED1 /* Info.plist */,
@@ -266,10 +272,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				19DFF5D1227102E600704ED1 /* ViewController.swift in Sources */,
+				19312F9A227D05C700361490 /* AddAssignmentViewController.swift in Sources */,
 				199AC3B3227CCC6C00A26CEC /* AssignmentViewController.swift in Sources */,
 				19DFF5D7227102E600704ED1 /* planner.xcdatamodeld in Sources */,
 				199AC3B5227CCDC100A26CEC /* Assignment.swift in Sources */,
 				19DFF5CF227102E600704ED1 /* AppDelegate.swift in Sources */,
+				1966DBF22286CECE0058207E /* RemoveAssignmentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
