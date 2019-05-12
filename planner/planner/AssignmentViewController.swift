@@ -5,8 +5,14 @@ import UIKit
 
 class AssignmentViewController: UITableViewController {
     var assignments: [AssignmentCoreData] = []
+    var nightModeStatus = UserDefaults.standard.bool(forKey: "nightModeOn")
 
     override func viewDidLoad() {
+        if nightModeStatus {
+            self.tableView.backgroundColor = UIColor .black
+        } else {
+            self.tableView.backgroundColor = UIColor .white
+        }
         super.viewDidLoad()
     }
     
@@ -22,13 +28,20 @@ class AssignmentViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let assignment = assignments[indexPath.row]
         
+        if nightModeStatus {
+            cell.backgroundColor = UIColor .black
+            cell.textLabel?.textColor = UIColor .white
+        } else {
+            cell.backgroundColor = UIColor .white
+            cell.textLabel?.textColor = UIColor .black
+        }
         if let name = assignment.name {
             cell.textLabel?.text = name
-            
+            cell.textLabel?.font = UIFont(name: (cell.textLabel?.font?.fontName)!, size: 18)
             if assignment.important {
                 cell.textLabel?.textColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
                 // UIColor(red: 0.4, green: 0.82, blue: 0.4, alpha: 1.0)
-                cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
+                cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
             }
         }
         

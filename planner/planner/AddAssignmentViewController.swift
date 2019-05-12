@@ -5,11 +5,25 @@ import UIKit
 
 class AddAssignmentViewController: UIViewController {
     var assignmentVC = AssignmentViewController()
+    var nightModeStatus = UserDefaults.standard.bool(forKey: "nightModeOn")
 
     @IBOutlet weak var assignmentNameField: UITextField!
     @IBOutlet weak var importantSwitch: UISwitch!
     
+    @IBOutlet weak var assignmentLabel: UILabel!
+    @IBOutlet weak var importantLabel: UILabel!
+    
     override func viewDidLoad() {
+        if nightModeStatus {
+            assignmentLabel.textColor = UIColor .white
+            importantLabel.textColor = UIColor .white
+            self.view.backgroundColor = UIColor .black
+            
+        } else {
+            assignmentLabel.textColor = UIColor .black
+            importantLabel.textColor = UIColor .black
+            self.view.backgroundColor = UIColor(red: 90/255, green: 210/255, blue: 255/255, alpha: 1)
+        }
         super.viewDidLoad()
     }
     
@@ -22,7 +36,7 @@ class AddAssignmentViewController: UIViewController {
             let assignment = AssignmentCoreData.init(entity: AssignmentCoreData.entity(), insertInto: context)
     
             if assignmentNameField.text == "" {
-                let alert = UIAlertController(title: "Invalid Name", message: "The name field cannot be left blank.", preferredStyle: UIAlertController.Style.alert)
+                let alert = UIAlertController(title: "xInvalid Name", message: "The name field cannot be left blank.", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }

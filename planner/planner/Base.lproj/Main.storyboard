@@ -74,6 +74,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Assignment Tracker">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="loadAssignmentView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QCD-gb-AJk"/>
@@ -86,9 +87,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q6O-Ta-Euj">
-                                <rect key="frame" x="103" y="640" width="169" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q6O-Ta-Euj">
+                                <rect key="frame" x="103" y="635" width="169" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Night Mode" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGw-uh-gec">
                                         <rect key="frame" x="0.0" y="0.0" width="112" height="31"/>
@@ -96,8 +96,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgP-7q-uRs">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jgP-7q-uRs">
                                         <rect key="frame" x="120" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="nightModeButton:" destination="OXV-Xs-ru2" eventType="valueChanged" id="Sh9-1w-dnp"/>
+                                            <action selector="toggleNightModeSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="A47-Sp-9Jj"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                             </stackView>
@@ -107,6 +111,8 @@
                             <constraint firstItem="Um7-hd-v4B" firstAttribute="top" secondItem="Rux-zS-7n1" secondAttribute="bottom" constant="25" id="1RR-gj-iex"/>
                             <constraint firstItem="Rux-zS-7n1" firstAttribute="top" secondItem="QAq-aF-UCx" secondAttribute="bottom" constant="25" id="5o8-DZ-pIh"/>
                             <constraint firstItem="tOj-Np-0yA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6cf-Sn-iKs"/>
+                            <constraint firstItem="Q6O-Ta-Euj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="OmJ-gX-9ew"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q6O-Ta-Euj" secondAttribute="trailing" constant="103" id="PAM-MQ-Gd5"/>
                             <constraint firstItem="eX9-ro-vLY" firstAttribute="top" secondItem="7Pd-Gx-Moz" secondAttribute="bottom" constant="7.3333333333333428" id="Qnq-Yr-mdp"/>
                             <constraint firstItem="tOj-Np-0yA" firstAttribute="top" secondItem="Um7-hd-v4B" secondAttribute="bottom" constant="25" id="TtC-i8-F5C"/>
                             <constraint firstItem="7Pd-Gx-Moz" firstAttribute="centerX" secondItem="eX9-ro-vLY" secondAttribute="centerX" id="YbO-u9-RKz"/>
@@ -115,7 +121,9 @@
                             <constraint firstItem="QAq-aF-UCx" firstAttribute="top" secondItem="eX9-ro-vLY" secondAttribute="bottom" constant="67.333333333333343" id="hcQ-Kl-XVt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Pd-Gx-Moz" secondAttribute="trailing" constant="48" id="joo-7R-kGM"/>
                             <constraint firstItem="7Pd-Gx-Moz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="61" id="oy2-pk-ye9"/>
+                            <constraint firstItem="zGw-uh-gec" firstAttribute="top" secondItem="tOj-Np-0yA" secondAttribute="bottom" constant="84.333333333333258" id="qRl-Yf-GtR"/>
                             <constraint firstItem="Um7-hd-v4B" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qxA-Ae-NaL"/>
+                            <constraint firstItem="Q6O-Ta-Euj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="103" id="sa0-Y6-9QD"/>
                             <constraint firstItem="QAq-aF-UCx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vRu-uS-IJS"/>
                             <constraint firstItem="eX9-ro-vLY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wn7-km-lsW"/>
                         </constraints>
@@ -123,9 +131,17 @@
                     </view>
                     <connections>
                         <outlet property="assignmentButton" destination="QAq-aF-UCx" id="Prt-Tg-rbU"/>
+                        <outlet property="calendarButton" destination="tOj-Np-0yA" id="MGe-TF-l8m"/>
+                        <outlet property="descriptionLabel" destination="eX9-ro-vLY" id="PlE-sx-Waa"/>
+                        <outlet property="fitnessButton" destination="Rux-zS-7n1" id="7oi-Bd-6as"/>
+                        <outlet property="nightModeLabel" destination="zGw-uh-gec" id="EPq-yL-Qkl"/>
+                        <outlet property="nightModeSwitch" destination="jgP-7q-uRs" id="9Xd-kz-00u"/>
+                        <outlet property="sleepButton" destination="Um7-hd-v4B" id="fhO-HS-AVv"/>
+                        <outlet property="titleLabel" destination="7Pd-Gx-Moz" id="FKD-PQ-o9N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="OXV-Xs-ru2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1258.4000000000001" y="-498.02955665024632"/>
         </scene>
@@ -303,7 +319,9 @@
                         <viewLayoutGuide key="safeArea" id="pjd-4H-XRj"/>
                     </view>
                     <connections>
+                        <outlet property="assignmentLabel" destination="qda-PL-8t8" id="1VQ-eX-G62"/>
                         <outlet property="assignmentNameField" destination="B51-lE-aRK" id="DKd-O2-GTr"/>
+                        <outlet property="importantLabel" destination="ONQ-ga-Dew" id="B70-X7-Kdg"/>
                         <outlet property="importantSwitch" destination="puP-tC-3ZN" id="sFE-38-MOp"/>
                     </connections>
                 </viewController>

@@ -6,13 +6,20 @@ import UIKit
 class RemoveAssignmentViewController: UIViewController {
     var assignmentVC = AssignmentViewController()
     var selectedAssignment: AssignmentCoreData?
-    
+    var nightModeStatus = UserDefaults.standard.bool(forKey: "nightModeOn")
+
     @IBOutlet weak var assignmentName: UILabel!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        if nightModeStatus {
+            assignmentName.textColor = UIColor .white
+            self.view.backgroundColor = UIColor .black
+        } else {
+            assignmentName.textColor = UIColor .black
+            self.view.backgroundColor = UIColor(red: 90/255, green: 210/255, blue: 255/255, alpha: 1)
+        }
         assignmentName.text = selectedAssignment?.name
+        super.viewDidLoad()
     }
     
     @IBAction func removeButtonWasTapped(_ sender: Any) {

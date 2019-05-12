@@ -7,5 +7,4 @@ import UIKit
 class Assignment {
     var name = ""
     var important = false
-    // var dueDate = DateTime()
 }
