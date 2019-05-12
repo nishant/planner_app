@@ -44,7 +44,6 @@ class AssignmentViewController: UITableViewController {
                 cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
             }
         }
-        
         return cell
     }
     
