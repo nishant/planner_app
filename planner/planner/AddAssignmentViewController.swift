@@ -9,11 +9,14 @@ class AddAssignmentViewController: UIViewController {
 
     @IBOutlet weak var assignmentNameField: UITextField!
     @IBOutlet weak var importantSwitch: UISwitch!
-    
+    @IBOutlet weak var createAssignmentButton: UIButton!
     @IBOutlet weak var assignmentLabel: UILabel!
     @IBOutlet weak var importantLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
+        createAssignmentButton.layer.cornerRadius = 10
+        
         if nightModeStatus {
             assignmentLabel.textColor = UIColor .white
             importantLabel.textColor = UIColor .white
@@ -34,9 +37,9 @@ class AddAssignmentViewController: UIViewController {
     func addAssignment() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             let assignment = AssignmentCoreData.init(entity: AssignmentCoreData.entity(), insertInto: context)
-    
+            
             if assignmentNameField.text == "" {
-                let alert = UIAlertController(title: "xInvalid Name", message: "The name field cannot be left blank.", preferredStyle: UIAlertController.Style.alert)
+                let alert = UIAlertController(title: "Invalid Name", message: "The name field cannot be left blank.", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
@@ -44,6 +47,9 @@ class AddAssignmentViewController: UIViewController {
             if let name = assignmentNameField.text {
                 assignment.name = name
                 assignment.important = importantSwitch.isOn
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yy h:mm a"
+                assignment.dueDate = dateFormatter.string(from: datePicker.date)
             }
             
             try? context.save()
